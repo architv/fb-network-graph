@@ -4,7 +4,7 @@ fb-network-graph
 Usage:
 ----------
 
-**fb-network-graph**  crawl any public [facebook](https://www.facebook.com/) post using the [FB graph api](https://developers.facebook.com/docs/graph-api/) for any "keyword" of your choice and then plot a graph for the likes and comments for the keyword.
+**fb-network-graph**  crawls any public [facebook](https://www.facebook.com/) post using the [FB graph api](https://developers.facebook.com/docs/graph-api/) for a "keyword" and then plots a graph for the likes and comments for the keyword.
 
 TODO:
 ------
