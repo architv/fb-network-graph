@@ -11,8 +11,3 @@ TODO:
 *  Improve the code to dynamically fetch the contents.
 *  PLot a network graph using the data.
 
-Developed By:
---------------
-*  [Dhruv Agarwal](https://github.com/dhruvagarwal)
-*  [Archit Verma](https://github.com/architv)
-
