@@ -12,7 +12,6 @@
   });
 
   FB.getLoginStatus(function(response){
-    // Here we specify what we do with the response anytime this event occurs. 
     if (response.status === 'connected') {
       actoken = response.authResponse.accessToken;
       console.log(response.authResponse.accessToken);
@@ -24,7 +23,6 @@
   },{scope:'read_stream,export_stream,user_friends'});
   };
 
-  // Load the SDK asynchronously
   (function(d){
    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
    if (d.getElementById(id)) {return;}
@@ -38,16 +36,6 @@
     FB.api("/870175569_10153929919780570?fields=likes.fields(pic_square,name).limit(100),comments", function(response) {
           if (response && !response.error) {
             console.log(response);
-            //like = response.posts.data[1].likes.data;
-            /*for(var i=0; i<like.length; i++) {
-              //like[i].name;
-              console.log(like[i].name);
-            }*/
-            //console.log(i);
-              //console.log('This is what you wrote ' + like[i].name);
-            //console.log('Good to see you, ' + response.name + '.');
-            //}*/
-              
           }
           else {
             console.log("Something's wrong");
@@ -55,11 +43,6 @@
     });
   }
 </script>
-
-<!--
-  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
-  present a graphical Login button that triggers the FB.login() function when clicked. -->
-
 <fb:login-button show-faces="true" size="xlarge" width="200" max-rows="1"></fb:login-button>
 </body>
 </html>
