@@ -1,0 +1,65 @@
+<html>
+<head></head>
+<body>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '1434923293417681',
+    status     : true, // check login status
+    cookie     : true, // enable cookies to allow the server to access the session
+    xfbml      : true  // parse XFBML
+  });
+
+  FB.getLoginStatus(function(response){
+    // Here we specify what we do with the response anytime this event occurs. 
+    if (response.status === 'connected') {
+      actoken = response.authResponse.accessToken;
+      console.log(response.authResponse.accessToken);
+
+      testAPI(actoken);
+    } else {
+      FB.login();
+    }
+  },{scope:'read_stream,export_stream,user_friends'});
+  };
+
+  // Load the SDK asynchronously
+  (function(d){
+   var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+   if (d.getElementById(id)) {return;}
+   js = d.createElement('script'); js.id = id; js.async = true;
+   js.src = "//connect.facebook.net/en_US/all.js";
+   ref.parentNode.insertBefore(js, ref);
+  }(document));
+
+  function testAPI(token) {
+    console.log('Welcome! Fetching your information.... ');
+    FB.api("/870175569_10153929919780570?fields=likes.fields(pic_square,name).limit(100),comments", function(response) {
+          if (response && !response.error) {
+            console.log(response);
+            //like = response.posts.data[1].likes.data;
+            /*for(var i=0; i<like.length; i++) {
+              //like[i].name;
+              console.log(like[i].name);
+            }*/
+            //console.log(i);
+              //console.log('This is what you wrote ' + like[i].name);
+            //console.log('Good to see you, ' + response.name + '.');
+            //}*/
+              
+          }
+          else {
+            console.log("Something's wrong");
+          }
+    });
+  }
+</script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
+  present a graphical Login button that triggers the FB.login() function when clicked. -->
+
+<fb:login-button show-faces="true" size="xlarge" width="200" max-rows="1"></fb:login-button>
+</body>
+</html>
