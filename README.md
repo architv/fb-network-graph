@@ -8,6 +8,6 @@ Usage:
 
 TODO:
 ------
-*  Improve the code to dynamically fetch the contents.
-*  PLot a network graph using the data.
+*  Optimize the code to fetch data from a JSON file.
+*  Grab the access token by itself.
 
