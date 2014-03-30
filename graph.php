@@ -59,7 +59,7 @@
 		    for($i=0;$i<$no;$i++) {
 		    	$initx = $initx+100;
 		    	$inity +=100;
-		    	echo "{ position:{x:$initx, y:$inity}, data: { id: '$details[$i]' , name: '$details[$i]'  } },";
+		    	echo "{ position:{ x:$initx, y:$inity }, data: { id: '$details[$i]' , name: '$details[$i]'  } },";
 		    }
 
     		echo " ], edges: [";
