@@ -14,6 +14,5 @@ Usage:
 
 todo:
 ------
-*  Draw the graph for all posts which contain a particular keyword.
-*  Grab the access token by itself.
+*  Make a HTML page to take inputs from the user and draw the graph.
 
