@@ -1,12 +1,13 @@
 var newdata;
 var whynotyouwork;
+
 $.ajax({
-          url : "data.txt",
-          dataType: "text",
-          success : function (data) {
-            localStorage.setItem('graphdata',data);
-          }
-      });
+  url : "data.txt",
+  dataType: "text",
+  success : function(data) {
+    localStorage.setItem('graphdata',data);
+  }
+});
 
 newdata = localStorage.getItem('graphdata');
 
