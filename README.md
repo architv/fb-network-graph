@@ -1,18 +1,25 @@
 fb-network-graph
 ================================
+
+Dependencies:
+-------------
+*  Python 2.7
+*  Django 1.6.1
        
 Usage:
 ----------
-**fb-network-graph**  crawls any public [facebook](https://www.facebook.com/) post using the [FB graph api](https://developers.facebook.com/docs/graph-api/) for a "keyword" and then plots a graph for the likes and comments for the keyword.
+**fb-network-graph**  crawls any public [Facebook](https://www.facebook.com/) post using the [FB graph api](https://developers.facebook.com/docs/graph-api/) for a "keyword" and then plots a graph for the likes and comments for the keyword.
 
-	$ python data.py
+Change the directory to wherever the files are stored and then run the following command
 
-    access token: (Your access token from [here](https://developers.facebook.com/tools/explorer) with permission for read_stream.
-    post id: (id of the post whose graph is to be drawn)
-    
-    After this open index.html
+	$ python manage.py runserver
+	
+	After this open localhost:8000/main/
+
+    access token: (Your access token from https://developers.facebook.com/tools/explorer with permission for read_stream.
+    keyword: (the keyword you want to search for)
 
 todo:
 ------
-*  Make a HTML page to take inputs from the user and draw the graph.
+*  Fix the Javascript errors.
 
