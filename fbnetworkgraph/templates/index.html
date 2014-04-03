@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Network Graphs</title>
+    {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}" />
+        <script type="text/javascript" src="{% static 'main/js/landing.js' %}"></script>
+</head>
+<body>
+<div class="heading">
+</div>
+<div class="input">
+    <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-group">
+        {% for field in input_form %}
+            <div class="fieldWrapper">
+                {{ field.errors }}
+                {{ field.label }} : {{ field }}
+            </div>
+        {% endfor %}
+        <input type="submit" value="Draw Graph"  tabindex="7">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
