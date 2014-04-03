@@ -21,5 +21,5 @@ Change the directory to wherever the files are stored and then run the following
 
 todo:
 ------
-*  Fix the Javascript errors.
+*  Improve the aesthetics.
 

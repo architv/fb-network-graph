@@ -14,7 +14,7 @@
         {% for field in input_form %}
             <div class="fieldWrapper">
                 {{ field.errors }}
-                {{ field.label }} : {{ field }}
+                {{ field.label }} : {{ field }} {{ field.help_text }}
             </div>
         {% endfor %}
         <input type="submit" value="Draw Graph"  tabindex="7">

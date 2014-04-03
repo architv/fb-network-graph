@@ -1,7 +1,7 @@
 import urllib, json
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render
 from main.forms import InputForm
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 
 def main(request):
     if request.method == 'POST': # If the form has been submitted
@@ -10,12 +10,9 @@ def main(request):
             cd = input_form.cleaned_data
             actoken = cd['access_token']
             keyword = cd['keyword']
-            print actoken
-            print keyword
-            url = "https://graph.facebook.com/search?q="+keyword+"&type=post&fields=likes.fields(name).limit(200),comments,message&limit=5&access_token="+actoken
+            url = "https://graph.facebook.com/search?q="+keyword+"&type=post&fields=likes.fields(name).limit(200),comments,message&limit=10&access_token="+actoken
             fetch = urllib.urlopen(url).read()
             data = json.loads(fetch)
-            #print data
             nodes = "[{ group:'nodes', data: { id:'"+keyword+"' , name:'"+keyword+"'  } },"
             edges = ""
             for meta in data["data"]:
@@ -28,10 +25,7 @@ def main(request):
                         nodes += "{ group:'nodes', data: { id: '"+beta['from']['id']+"' , name: '"+beta['from']['id']+"'  } },"
                         edges += "{ group:'edges', data: { source:'"+keyword+"' , target: '"+beta['from']['id']+"' } },"
             edges += " ]"
-            #print nodes
-            #print edges
             total = nodes + edges
-            #print total
             with open('data.txt','w+') as js:
                 js.write(total)
             return HttpResponseRedirect('/graph/')
@@ -52,11 +46,3 @@ def graph(request):
     return render(request,'graph.html',{
             'content':content,
         })
-
-"""def getData(request):
-    with open('data.txt','r+') as data:
-        content = data.read()
-        print content
-    return render(request,'data.html',{
-            'content':content,
-        })"""

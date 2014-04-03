@@ -9,7 +9,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     (r'^main/$', main),
     (r'^graph', graph),
-    #(r'^data', getData),
 
     url(r'^admin/', include(admin.site.urls)),
 )
