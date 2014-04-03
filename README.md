@@ -14,9 +14,9 @@ Change the directory to wherever the files are stored and then run the following
 
 	$ python manage.py runserver
 	
-	After this open localhost:8000/main/
+	After this open http://localhost:8000/main/
 
-    access token: (Your access token from https://developers.facebook.com/tools/explorer with permission for read_stream.
+    access token: (Your access token from https://developers.facebook.com/tools/explorer with permission for read_stream)
     keyword: (the keyword you want to search for)
 
 todo:
