@@ -8,12 +8,11 @@ def main(request):
         input_form = InputForm(request.POST)
         if input_form.is_valid():
             cd = input_form.cleaned_data
-            actoken = cd['access_token']
             keyword = cd['keyword']
-            url = "https://graph.facebook.com/search?q="+keyword+"&type=post&fields=likes.fields(name).limit(10),comments,message&limit=5&access_token="+actoken
+            url = "https://graph.facebook.com/search?q="+keyword+"&type=post&fields=likes.fields(name).limit(10),comments,message&limit=5&access_token=1434923293417681|3e2c59074ce5b2d34436fe6ee90dfa63"
             fetch = urllib.urlopen(url).read()
             data = json.loads(fetch)
-            nodes = "[{ group:'nodes', data: { id:'"+keyword+"' , name:'"+keyword+"',gweight: '12', gheight: '12', faveColor: '#6FB1FC', mColor: '#6FB1FC', size: 6  } },"
+            nodes = "[{ group:'nodes', data: { id:'"+keyword+"' , name:'"+keyword+"',gweight: '12', gheight: '12', faveColor: '#6FB1FC', mColor: '#6FB1FC', size: 8  } },"
             edges = ""
             for meta in data["data"]:
                 if "likes" in meta:
