@@ -13,24 +13,47 @@
 		$(function(){ // on dom ready
 
 		$('#cy').cytoscape({
-		  layout: { 
-		    name: 'random',
-		    ready: undefined, // callback on layoutready
-		    stop: undefined, // callback on layoutstop
-		    fit: true // whether to fit to viewport
-		  },
+		  layout: {
+		  	    name: 'cose',
+			    ready               : function() {},
+			    stop                : function() {},
+			    refresh             : 0,
+			    fit                 : true, 
+			    padding             : 30, 
+			    randomize           : true,
+			    debug               : false,
+			    nodeRepulsion       : 10000,
+			    nodeOverlap         : 10,
+			    idealEdgeLength     : 10,
+			    edgeElasticity      : 100,
+			    nestingFactor       : 5, 
+			    gravity             : 250, 
+			    numIter             : 100,
+			    initialTemp         : 200,
+			    coolingFactor       : 0.95, 
+			    minTemp             : 1
+		  },	
 		  style: cytoscape.stylesheet()
 		    .selector('node')
 		      .css({
 		        'content': 'data(name)',
 		        'text-valign': 'center',
 		        'color': 'white',
-		        'text-outline-width': 2,
-		        'text-outline-color': '#888'
+		        'font-size': 'data(size)',
+		        'width':'data(gweight)',
+		        'height':'data(gheight)',
+		        'text-outline-width': 1,
+		        'text-outline-color': '#888',
+		        'background-color': 'data(faveColor)',
+		        'text-outline-color': 'data(mColor)',
 		      })
 		    .selector('edge')
 		      .css({
-		        'target-arrow-shape': 'triangle'
+		        'target-arrow-shape': 'triangle',
+		        'control-point-weight': 0.01,
+		        'curve-style':'haystack',
+		        'width':0.3,
+		        'line-color': 'data(mColor)'
 		      })
 		    .selector(':selected')
 		      .css({

@@ -10,20 +10,20 @@ def main(request):
             cd = input_form.cleaned_data
             actoken = cd['access_token']
             keyword = cd['keyword']
-            url = "https://graph.facebook.com/search?q="+keyword+"&type=post&fields=likes.fields(name).limit(200),comments,message&limit=10&access_token="+actoken
+            url = "https://graph.facebook.com/search?q="+keyword+"&type=post&fields=likes.fields(name).limit(10),comments,message&limit=5&access_token="+actoken
             fetch = urllib.urlopen(url).read()
             data = json.loads(fetch)
-            nodes = "[{ group:'nodes', data: { id:'"+keyword+"' , name:'"+keyword+"'  } },"
+            nodes = "[{ group:'nodes', data: { id:'"+keyword+"' , name:'"+keyword+"',gweight: '12', gheight: '12', faveColor: '#6FB1FC', mColor: '#6FB1FC', size: 6  } },"
             edges = ""
             for meta in data["data"]:
                 if "likes" in meta:
                     for beta in meta["likes"]["data"]:
-                        nodes += "{ group:'nodes', data: { id: '"+beta['id']+"' , name: '"+beta['id']+"'  } },"
-                        edges += "{ group:'edges', data: { source:'"+keyword+"' , target: '"+beta['id']+"' } },"
+                        nodes += "{ group:'nodes', data: { id: '"+beta['id']+"' , name: '"+beta['id']+"', gweight: '2', gheight: '2', faveColor: '#736F6E', mColor: '#736F6E', size: 2 } },"
+                        edges += "{ group:'edges', data: { source:'"+keyword+"' , target: '"+beta['id']+"', mColor: '#98AFC7' } },"
                 if "comments" in meta:
                     for beta in meta["comments"]["data"]:
-                        nodes += "{ group:'nodes', data: { id: '"+beta['from']['id']+"' , name: '"+beta['from']['id']+"'  } },"
-                        edges += "{ group:'edges', data: { source:'"+keyword+"' , target: '"+beta['from']['id']+"' } },"
+                        nodes += "{ group:'nodes', data: { id: '"+beta['from']['id']+"' , name: '"+beta['from']['id']+"', gweight: '2', gheight: '2', faveColor: '#736F6E', mColor: '#736F6E', size: 2  } },"
+                        edges += "{ group:'edges', data: { source:'"+keyword+"' , target: '"+beta['from']['id']+"', mColor:'#52D017' } },"
             edges += " ]"
             total = nodes + edges
             with open('data.txt','w+') as js:

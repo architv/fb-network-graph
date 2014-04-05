@@ -1,0 +1,19 @@
+body {
+  padding-top: 10px;
+  background-color: #f0f0f0;
+}
+.input {
+	width:35%;
+	margin:0 auto;
+	padding-top: 30px;
+}
+span {
+	font-size: 13px;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+}

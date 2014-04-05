@@ -1,26 +1,35 @@
 <html>
 <head>
     <title>Network Graphs</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+
     {% load staticfiles %}
-        <link rel="stylesheet" type="text/css" href="{% static 'main/css/style.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'main/css/styleindex.css' %}" />
         <script type="text/javascript" src="{% static 'main/js/landing.js' %}"></script>
 </head>
 <body>
 <div class="heading">
+    <center><h1>Facebook Network Graphs</h1></center>
 </div>
 <div class="input">
     <form method="post" action="" enctype="multipart/form-data">{% csrf_token %}
         <div class="form-group">
         {% for field in input_form %}
             <div class="fieldWrapper">
+                {{ field }}
                 {{ field.errors }}
-                {{ field.label }} : {{ field }} {{ field.help_text }}
             </div>
         {% endfor %}
-        <input type="submit" value="Draw Graph"  tabindex="7">
+        <br>
+        <span id="help">You can get the access token from <a href="https://developers.facebook.com/tools/explorer/">here</a>. Mark the permission <i>read_stream</i>.</span>
+        <br><button class="btn btn-lg btn-primary btn-block" type="submit">Draw Graph</button>
         </div>
     </form>
 </div>
-
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </body>
 </html>
