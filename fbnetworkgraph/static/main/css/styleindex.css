@@ -7,9 +7,6 @@ body {
 	margin:0 auto;
 	padding-top: 30px;
 }
-span {
-	font-size: 13px;
-}
 label{
     display: inline-block;
     float: left;

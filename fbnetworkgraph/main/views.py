@@ -1,4 +1,4 @@
-import urllib, json
+import requests
 from django.shortcuts import render
 from main.forms import InputForm
 from django.http import HttpResponseRedirect
@@ -10,8 +10,8 @@ def main(request):
             cd = input_form.cleaned_data
             keyword = cd['keyword']
             url = "https://graph.facebook.com/search?q="+keyword+"&type=post&fields=likes.fields(name).limit(10),comments,message&limit=5&access_token=1434923293417681|3e2c59074ce5b2d34436fe6ee90dfa63"
-            fetch = urllib.urlopen(url).read()
-            data = json.loads(fetch)
+            fetch = requests.get(url)
+            data = fetch.json()
             nodes = "[{ group:'nodes', data: { id:'"+keyword+"' , name:'"+keyword+"',gweight: '12', gheight: '12', faveColor: '#6FB1FC', mColor: '#6FB1FC', size: 8  } },"
             edges = ""
             for meta in data["data"]:
