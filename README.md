@@ -5,6 +5,11 @@ Dependencies:
 -------------
 *  Python 2.7
 *  Django 1.6.1
+*  requests python module
+
+Live Site:
+----------
+The app is live. Click [here](http://architv.pythonanywhere.com/main/).
        
 Usage:
 ----------
@@ -16,10 +21,5 @@ Change the directory to wherever the files are stored and then run the following
 	
 	After this open http://localhost:8000/main/
 
-    access token: (Your access token from https://developers.facebook.com/tools/explorer with permission for read_stream)
     keyword: (the keyword you want to search for)
-
-todo:
-------
-*  Improve the aesthetics.
 
