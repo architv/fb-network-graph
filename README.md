@@ -23,3 +23,7 @@ Change the directory to wherever the files are stored and then run the following
 
     keyword: (the keyword you want to search for)
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/architv/fb-network-graph/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
